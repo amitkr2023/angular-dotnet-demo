@@ -1,0 +1,453 @@
+								ASP .NET MVC
+								=============
+View in MVC:
+------------
+Add a new View:
+---------------
+1) View are added for an action method.
+2) Using Solution explorer
+3) Using action method
+4) Action method return type must be ViewResult or ActionResult
+5) In MVC, browser cannot directly call view.
+6) Every call must go through a controller.
+7) Browser don't even know whether he is callling a View or something else. Because its a job of action method. If action method is returning a view 
+   then browser will display the content.
+
+							domain/controller/actionMethod
+
+How controller find a view?
+----------------------------
+1) First it searches in corresponding view folder (same name as controller)
+2) Then it goes to shared folder
+
+Return view from controller:
+---------------------------
+What if view has different name from action method.
+
+Models:
+-------
+> What is a model
+> What is the role of a model
+> How to add a new model
+> How to return model from controller to view
+> How to use model on view
+
+> What is a model?
+=> One of main pillar of MVC (M - Model)
+=> .cs file
+=> Model is responsible for data.
+=> Models are normal C# classes.
+=> In dynamic website data comes from database by models. Once data comes from database, then controller action method returns model to view.
+
+Role of a controller:
+---------------------
+1) Responsible for data.
+2) Used for dynamic content of website where data comes from other source.
+
+							Controller
+							/	 \
+						      Model-----> View
+
+
+Razor View Engine:
+------------------
+Objective:
+----------
+-> What is a View Engine?
+-> Why View Engine is required?
+-> What is Razor
+-> Razor Syntax
+-> Comments in razor syntax
+-> Escape sequence in Razor syntax
+
+View Engine:
+------------
+View Engine is an intermediate which converts HTML + Programming language(C#) View into pure html code into the browser.
+
+=> View Engine is responsible for creating HTML for views.
+
+Why View Engine?
+----------------
+-> To find corresponding view for Action Method.
+-> To find view from shared folder
+-> Used to write C# code on views
+-> Used for HTML helpers
+-> Used in strongly binding view
+
+Razor:
+------
+1) Razor is a View Engine
+2) Razor is not a new programming language
+3) View file extension for Razor is .cshtml and .vbhtml
+4) Available in System.Web.Razor namespace
+5) Writing programming language on view is veruy easy
+6) Easy syntax
+
+		"Razor is markup syntax for embedding server side code into web pages"
+
+Razor syntax:
+-------------
+It all begins with @.
+
+i) Single line syntax
+ii) Multiline syntax
+
+Razor is so intelligent:
+------------------------
+It can identify an email address by ignoring @itself.
+
+Escape Syntax in Razor:
+-----------------------
+What if we need to write a twitter name?
+	example - @nitish_kaushik
+
+
+To solve this problem Razor provides @@
+	example - @@nitish_kaushik
+
+Razor View Engine(Conditional statement, looping, Directives):
+--------------------------------------------------------------
+Objective:
+----------
+1) Conditional statements (if, else if, ternary operator)
+2) Looping statements (for loop, for each loop)
+3) How to write html code within Razor code block
+4) Directives in Razor
+5) Other views engines
+
+If statement:
+-------------
+1) @if(condition)
+   {
+       // statement
+   }
+
+2) @if(condition)
+   {
+	// statement
+   }
+   else
+   {
+	// statement
+   }
+
+Ternary operator:
+-----------------
+@(condition ? statement1: statement2)
+
+
+For loop:
+---------
+@for(int i = 1; i <= 10; i++)
+{
+	// statements
+}
+
+@foreach(var item in collection)
+{
+	// statements
+}
+
+e.g., <div>
+      	@{
+	    var myList = new List<int>() {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	    <text>var myList1 = new List<int>() {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};</text>
+	    <div>
+		Hello this is a div
+	    </div>
+       	}
+      </div>
+
+      <div>
+	@foreach(var obj in myList)
+	{
+	      <h1>My value is = @obj </h1><br />
+	}
+      </div>
+
+
+Directives in Razor:
+--------------------
+1) @using (Used to add model class and namespace etc)
+2) @model (Used to provide type of model)
+
+Other view engines:
+-------------------
+1) ASPX
+2) Web from view engine
+3) Bellevue
+4) Brail
+5) Hasic
+6) nDjango
+7) NHaml
+8) NVelocityViewEngine
+9) SharTiles
+10) SparkViewEngine
+
+Mastering HTML Helpers:
+-----------------------
+Objective:
+----------
+1) What are HTML helpers
+2) How to use HTML helpers on view
+3) HTML helpers examples
+4) Types of HTML helpers
+
+HTML helpers-
+-------------
+1) HTML helpers are methods
+2) These return HTML strings
+3) These are used on View
+4) In simple these are C# methods which are used to return HTML.
+5) Using HTML helpers you can render a text box, an area, image tag etc.
+6) MVC has built in HTML helpers
+7) We can create custom helpers also
+8) Using HTML helpers a view can show model properties and can generate html as per the types of properties.
+
+Types of HTML helpers:
+----------------------
+1) Inline HTML helpers
+2) Built-In HTML helpers
+   i) Standard HTML helpers
+  ii) Strongly Typed HTML helpers
+ iii) Templated HTML helpers
+3) Custom HTML helpers
+
+Inline HTML helper:
+-------------------
+1) These are created on single view and are used on same page.
+2) Inline helpers can be created using @helper tag.
+		@helper HelperName(parameters)
+		{
+			// Code
+		}
+
+		@HelperName(parameters)
+
+Use Case:-
+----------
+1) When you have something common for a single view.
+2) Best way to avoid code duplicacy in a single view.
+3) Don't use for common part for different view.
+
+Mastering Standard HTML helpers(Standard HTML helpers):
+-------------------------------------------------------
+Objective:
+----------
+1) Built-in HTML helpers
+2) Standard HTML helpers
+3) Standard HTML helpers examples
+   i) Html.ActionLink()
+  ii) Html.TextBox()
+ iii) Html.Password()
+  iv) @Html.CheckBox() and list goes on
+
+1) Built-in HTML helpers:
+   ----------------------
+   1) These are already created by ASP .Net MVC
+   2) These methods have multiple overrides so that we can use as per our requirement.
+
+Standard HTML helpers:
+----------------------
+1) @Html.ActionLink() - Used to create link on html page.
+2) @Html.TextBox() - Used to create text box
+3) @Hml.CheckBox() - Used to create checkbox
+4) @Html.RadioButton() - Used to create radio button
+5) @Html.BeginForm() - Used to start form
+6) @Html.EndForm() - Used to end a form
+7) @Html.DropDownList() - Used to create dropdown list
+8) @Html.Hidden() - Used to create Hidden fields
+
+Mastering HTML helpers(Strongly typed HTML helpers):
+---------------------------------------------------
+Objective:
+----------
+1) Strongly typed HTML helpers
+2) Strongly type view
+3) Strongly typed HTML helper examples
+	like @Html.TextBoxFor()
+	     @Html.CheckBoxFor() etc.
+4) How to pass data from Controller to View using Strongly type View
+5) How to pass data from View to Controller using Strongly type View
+
+Strongly Typed HTML helper:
+---------------------------
+Model(Propety) + View(HTML) => Strongly type view
+
+How to use?
+-----------
+It uses Lambda expressions.
+	@Html.TextBoxFor(model => model.property)
+
+@using StronglyTypeHelpers.Models
+@model Employee
+
+@using (Html.BeginForm("myForm"))
+{
+    
+}
+@Html.TextBoxFor(x => x.Name)
+<br />
+<br />
+@Html.TextBoxFor(x => x.Address)
+<br />
+<br />
+@Html.CheckBoxFor(x => x.IsEmployee)
+
+<br />
+<br />
+
+<input type="submit" value="Press Me">
+
+
+public class HomeController: Controller
+{
+     [HttpPost]
+     public ActionResult Index(Employee emp)
+     {
+	return View();
+     }
+}
+
+Objective:
+----------
+1) Templated HTML helpers
+2) Types of Templated HTML helper
+3) How to use Templated HTML helper
+4) Show complete model data on view with one HTML helper
+5) Generate complete HTML based on model with one HTML helper
+
+Templated HTML helper:
+----------------------
+1) Used for data display and input
+2) It generates HTML automatically as per model property.
+   
+   Means
+   * Calender from Date
+   * Number from int
+   * Checkbox from bool etc.
+
+3) Can generate HTML for complete model with a single tag
+
+Types of Templated Html helper:
+-------------------------------
+1) Display
+   => @Html.Display()
+   => @Html.DisplayFor()
+   => @Html.DisplayName()
+   => @Html.DisplayNameFor()
+   => @Html.DisplayText()
+   => @Html.DisplayTextFor()
+   => @Html.DisplayForModel()
+
+2) Edit / Input
+   => @Html.Editor()
+   => @Html.EditorFor()
+   => @Html.EditorForModel()
+
+1) Display:
+   --------
+   i) @Html.DisplayName() - Used to display only the name of model property
+  ii) @Html.DisplayNameFor() - Strongly binding version of the last helper
+ iii) @Html.DisplayText() - Used to display only the value of model property
+  iv) @Html.DisplayTextFor() - Strongly binding version of the last helper
+   v) @Html.Display() - Used to display value with some extra functionality
+  vi) @Html.DisplayFor() - Strongly binding version of the last helper
+ vii) @Html.DisplayForModel() - Used to display complete model data
+
+Edit/Input:
+------------
+i) @HtmlEditor() - - Used to create input field using the single model property
+ii) @HtmlEditrFor() - Strongly binding version of last helper
+iii) @Html.EditorForModel() - Used to create input field for entire model
+
+Custom HTML helpers:
+-------------------
+There are 2 ways to create custom HTML helpers:
+1) Using static class and static method
+2) Using Extension method
+
+Using static class, method
+--------------------------
+public static class CustomHelper
+{
+    public static IHtmlString  Label(string src, string alt)
+    {
+	return new MvcHtmlString(string.Format("<img src='{0}' alt='{1}'></img>", src, alt));
+    }
+}
+
+1) Static class
+2) Static method
+3) IHtml string
+4) MVCHtmlString
+
+
+CustomHelper.cs
+---------------
+public class CustomHelper
+{
+    public static IHtmlString Image(string src, string alt)
+    {
+	return new MvcHtmlString(string.Format("<img src='{0}' alt='{1}'></img>", src, alt));
+    }
+}
+
+Index.cshtml
+------------
+@CustomHelper.Image("")
+
+Tag builder-
+------------
+public static class CustomHelper
+{
+    public static IHtmlString ImgTag(this HtmlHelper helper, string src, string alt)
+    {
+	TagBuilder tag = new TagBuilder("img");
+	tag.Attributes.Add("src", src);
+	tag.Attributes.Add("alt", alt);
+	return new MvcHtmlString(tag.ToString());
+    }
+}
+
+TagBuilder class is used to create tags for a particular element. We can use TagBuilder class instead of writing hard code html.
+
+ViewBag and ViewData in MVC:
+----------------------------
+Objective:
+----------
+1) What is ViewBag
+2) What is ViewData
+3) How to pass data from controller to view
+4) Show data on view using ViewBag and ViewData
+5) Advantages
+6) Disadvantages
+
+ViewBag and ViewData:
+---------------------
+1) Both ViewBag and ViewData are used to pass data from controller to view.
+2) This is the easiest way to transfer data from controller to view.
+
+		(Controller)========>View
+		  ViewBag
+		     Or	    <===/===
+		  ViewData
+
+ViewBag:
+--------
+1) ViewBag is a dynamic property.
+2) This is used to send data from controller to view.
+3) We can assign any name to property
+
+		ViewBag.MyProperty = Value;
+
+ViewData:
+---------
+1) ViewData works as a dictionary.
+2) This is also used to send data from controller to view
+3) We can assign any name to key.
+
+			ViewData["myKey"] = Value;
+
+
+

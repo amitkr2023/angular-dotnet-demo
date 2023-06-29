@@ -1,0 +1,48 @@
+Anuglar
+
+
+Angular Forms
+Binding
+Anuglar Directive
+Http/Ajax Request
+Service / Modules / Classes
+
+To learn in Anuglar > 
+Routing(Child Routing,Auth Gaurd,Router Service>Change Detection)
+RXJS Operators > Observables vs Promises ,Objs Pipes , Error Handling , Timout
+Array Built in Methods 
+Reference Based Objects / Array
+Design Theory (UI/UX) > https://www.youtube.com/playlist?list=PLpQQipWcxwt8DCKxITZBJeIAtAYA4N4hB
+
+-------------------------------------------------------------------------------------
+
+
+
+API To Learn
+
+
+OOPs
+Controllers
+Request Methods
+List and Models
+Reference Types/Class Based and AnonymousTypes/Custom> Object 
+Exception Handling
+Transactions
+Type Conversion
+Serializations / DeSerializations
+Data Annotations
+
+After Code Modification
+//Author - 
+//Date - 
+//Description -
+
+
+
+
+ 
+
+
+
+
+

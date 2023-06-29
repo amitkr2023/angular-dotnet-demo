@@ -1,0 +1,100 @@
+								ASP .NET CORE
+							==================================
+
+Links:
+------
+1. https://www.youtube.com/watch?v=LfLFiAw7d28&list=PLnVvOWNfuhGWGh7DpOgtBOmp0XmLHRuEc&index=1 -> ASP .Net Core 3.1
+2. https://www.tutorialsteacher.com/mvc - .Net MVC 5.0
+3. https://www.tutorialspoint.com/asp.net_mvc/index.htm - ASP .Net MVC
+4. Code Affection and Kudvenkat Youtube tutorials
+5. https://www.youtube.com/@letsprogram30/playlists
+6. https://www.youtube.com/watch?v=ZoZ8z7J_SyE
+
+
+Project Structure of ASP .Net Core 3.1:
+---------------------------------------
+The project structure of ASP.NET 3.1 can vary depending on the type of project you create, but generally, it follows the following structure:
+
+1. Project file (.csproj) - This file contains project-specific settings and references to all the files and dependencies in the project.
+   ----------------------
+
+2. Properties - This folder contains files related to project properties, such as launchSettings.json and appsettings.json.
+   ----------
+
+3. wwwroot - This folder contains static files such as HTML, CSS, JavaScript, images, and other assets that can be accessed by the client.
+   -------
+
+4. Controllers - This folder contains classes that handle requests and responses. Controllers contain action methods that are executed when a client makes a request.
+   -----------
+
+5. Models - This folder contains classes that represent data structures used by the application.
+   ------
+
+6. Views - This folder contains files that define the user interface of the application. Views are typically written in Razor syntax, which is a mix of HTML and C#.
+   -----
+
+7. Services - This folder contains classes that provide application-specific services, such as data access, authentication, and authorization.
+   --------
+
+8. Middleware - This folder contains classes that are used to modify the HTTP request/response pipeline.
+   ----------
+
+9. Program.cs - This file contains the entry point of the application and sets up the web host.
+   ----------
+
+10. Startup.cs - This file contains the configuration of the application, such as middleware, services, and routing.
+    ----------
+
+11. appsettings.json - This file contains application-specific settings, such as connection strings, API keys, and logging settings.
+    ----------------
+
+12. launchSettings.json - This file contains settings related to launching the application, such as the server URL and environment variables.
+    -------------------
+
+Swagger in ASP .Net Core:
+------------------------
+Swagger:-> Swagger is a popular tool used for documenting APIs, and it can be easily integrated into ASP.NET Core applications.
+--------
+
+The steps to use Swagger in an ASP.NET Core project:
+----------------------------------------------------
+1. Install the Swagger package: Use the NuGet package manager to install the Swashbuckle.AspNetCore package.
+
+2. Configure Swagger: In the Startup.cs file, configure Swagger in the ConfigureServices method using the AddSwaggerGen extension method. You can also specify 
+   additional settings such as the API version, title, and description.
+
+3. Enable Swagger: In the Configure method, enable Swagger using the UseSwagger and UseSwaggerUI extension methods. The UseSwagger method adds the Swagger 
+   middleware to the pipeline, while the UseSwaggerUI method sets up the Swagger UI page.
+
+4. Add Swagger annotations: In your API controller methods, use annotations such as [HttpGet], [HttpPost], and [ProducesResponseType] to provide Swagger with 
+   information about the method's input and output.
+
+5. Test the API documentation: Run the application and navigate to the Swagger UI page at the URL "/swagger". You should see a page that displays the API documentation.
+
+=> Swagger can be customized further to include additional documentation and features, such as security schemes and custom UI themes.
+
+=> By using Swagger, developers can easily create and maintain accurate API documentation, and clients can easily understand and consume the APIs.
+
+Controllers in ASP .Net Core:
+----------------------------
+Controllers in ASP.NET Core are the classes that handle incoming HTTP requests and generate HTTP responses. They are responsible for 
+processing user input, interacting with the model layer, and returning an appropriate HTTP response to the client.
+
+Some key features of controllers in ASP.NET Core:
+-------------------------------------------------
+1. Routing - Controllers are mapped to incoming HTTP requests using routing, which is configured in the Startup.cs file.
+   -------
+
+2. Action methods - Controllers contain action methods that are invoked when an incoming HTTP request matches the routing pattern.
+   --------------   An action method can return a view or a response, and can have optional parameters for processing user input.
+
+3. Model binding - Action methods can accept input from the client via query strings, form data, or JSON payloads. The ASP.NET Core model 
+   -------------   binding system automatically maps input values to action method parameters based on their names and data types.
+
+4. Filters - Controllers can be augmented with filters, which are components that intercept HTTP requests and responses.
+   -------   Filters can modify or validate input, log requests, enforce security policies, or add response headers.
+
+5. Dependency injection - Controllers can access services and components by using dependency injection. Services can be registered and configured in the Startup.cs file,
+   --------------------   and can be injected into controllers using constructor injection or property injection.
+
+
